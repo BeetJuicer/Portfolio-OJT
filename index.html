@@ -148,10 +148,11 @@
         </div>
         <div class="card-body">
           <div class="card-body-inner">
-            <p class="card-desc">Flocking simulation using separation, alignment, and cohesion steering behaviours. Uses compute shaders for performance.</p>
+            <p class="card-desc">Flocking simulation using separation, alignment, and cohesion steering behaviours. Has complex obstacle avoidance. Uses compute shaders for performance.</p>
             <div class="embed-area">
-              <!-- ✏️ GIF: <img src="your-boids.gif" alt="Boids demo" /> -->
-              <div class="embed-hint">✏️ Drop your GIF here</div>
+              <video autoplay loop muted playsinline>
+                <source src="preview_boids.mp4" type="video/mp4">
+              </video>
             </div>
             <div class="card-body-footer">
               <a class="itch-btn" href="https://beetjuicer.itch.io/YOUR_BOIDS_PAGE" target="_blank">
@@ -278,11 +279,12 @@
         </div>
         <div class="card-body">
           <div class="card-body-inner">
-            <p class="card-desc">FSM-driven bird flight with flapping, gliding, soaring, and landing states. Gliding applies real-time lift and drag based on angle-of-attack. Splines define patrol paths and thermals. State transitions preserve momentum.</p>
+            <p class="card-desc">FSM-driven bird flight with momentum handoff between states — dive speed feeds directly into glide velocity, making fast dives launch into swift, weighty glides. Lift and drag scale with entry speed, and spline-defined wind paths give birds a natural sense of flow through the environment.</p>
             <div class="embed-area">
-              <!-- ✏️ GIF: <img src="your-bird.gif" alt="Bird flight demo" /> -->
-              <div class="embed-hint">✏️ Drop your GIF here</div>
-            </div>
+              <video autoplay loop muted playsinline>
+                <source src="preview_bird.mp4" type="video/mp4">
+              </video>
+              </div>
             <div class="card-body-footer">
               <a class="itch-btn" href="https://beetjuicer.itch.io/YOUR_BIRD_PAGE" target="_blank">
                 <img src="https://static.itch.io/images/badge-color.svg" alt="itch.io" height="16" />
@@ -310,10 +312,11 @@
         </div>
         <div class="card-body">
           <div class="card-body-inner">
-            <p class="card-desc">Rewind and replay system built on the Command pattern. Every player action is an undoable command pushed to a history stack. Rewinding pops and un-executes in reverse. Supports branching timelines and object state snapshots.</p>
+            <p class="card-desc">Rewind and replay system built on the Command pattern. Every entity is a TimeReversible object except for the player, allowing for time contrl shenanigans.</p>
             <div class="embed-area">
-              <!-- ✏️ GIF: <img src="your-time.gif" alt="Time control demo" /> -->
-              <div class="embed-hint">✏️ Drop your GIF here</div>
+              <video autoplay loop muted playsinline>
+                <source src="preview_time.mp4" type="video/mp4">
+              </video>
             </div>
             <div class="card-body-footer">
               <a class="itch-btn" href="https://beetjuicer.itch.io/YOUR_TIME_PAGE" target="_blank">
