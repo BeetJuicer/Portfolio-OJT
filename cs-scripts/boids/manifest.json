@@ -1,1 +1,4 @@
-["BoidManager.cs", "BoidComputeShader.compute"]
+["BoidManager.cs", 
+ "BoidComputeShader.compute",
+ "Boid.cs"
+]

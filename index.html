@@ -9,427 +9,60 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@13/font/simple-icons.min.css">
   <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!--highlight.js-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-light.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-
 </head>
 <body>
 
 <canvas id="bg-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
 
-<header style="position:relative;z-index:1;">
-  <div class="wrap">
-    <div class="eyebrow fade">Game Programmer</div>
-    <h1 class="fade d1">Carl Andrei<br><em>Capilitan</em></h1>
-    <p class="hero-bio fade d2">
-      <!-- ✏️ EDIT: Your bio -->
-      Gameplay programmer with a strong grip on game systems design and hands-on experience with cloud architecture.
-    </p>
-    <div class="hero-links fade d3">
-      <!-- ✏️ EDIT: Replace # with real URLs -->
-      <a href="https://github.com/BeetJuicer"><span class="si si-github"></span> GitHub</a>
-      <a href="https://www.linkedin.com/in/carl-capilitan/"><span class="si si-linkedin"></span> LinkedIn</a>
-      <a href="https://beetjuicer.itch.io/"><span class="si si-itchdotio"></span> Itch.io</a>
-      <a href="mailto:cc.capilitan@gmail.com"><i data-lucide="mail"></i> Email</a>
-    </div>
-  </div>
-</header>
+<div id="slot-header"></div>
 
 <nav>
   <div class="nav-inner">
     <a href="#published">Published</a>
     <a href="#showcase">Showcase</a>
+    <a href="#requirements">OJT Requirements</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
-<!-- ═══ PUBLISHED ═══ -->
-<section id="published">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="section-num">01</span>
-      <h2>Published Games</h2>
-    </div>
-
-    <!-- City of Faith — Unity Mobile Game -->
-    <div class="project-row">
-      <div>
-        <div class="project-name">City of Faith</div>
-        <div class="project-platform">Mobile · Live Production · Unity / C#</div>
-        <a href="https://beetjuicer.itch.io/city-of-faith"><img src="cof-preview.png" alt="City of Faith" class="project-thumb" /></a>
-      </div>
-      <div class="project-contributions">
-        <ul>
-          <li><strong>Lead developer</strong> — built resource loops, building &amp; planting mechanics, and player progression using OOP patterns.</li>
-          <li><strong>Balanced economy</strong> using analytics from 15+ tracked engagement metrics.</li>
-          <li><strong>Architected the full data layer</strong>: SQLite offline, Unity Services cloud save, and content delivery with addressables.</li>
-          <li><strong>Built Unity Cloud Code serverless backend</strong> — expedition matchmaking, friend donation systems, and live game logic.</li>
-        </ul>
-      </div>
-      <div class="project-links">
-        <a href="https://beetjuicer.itch.io/city-of-faith">Itch.io</a>
-      </div>
-    </div>
-
-    <!-- City of Faith Admin CMS — Laravel -->
-    <div class="project-row">
-      <div>
-        <div class="project-name">City of Faith Admin CMS</div>
-        <div class="project-platform">Web · Live Production · Laravel / PHP</div>
-        <img src="cof-cms-preview.jpg" alt="City of Faith CMS" class="project-thumb" />
-      </div>
-      <div class="project-contributions">
-        <ul>
-          <li><strong>Laravel backend powering live game content </strong>— manages all the bible verses and quizzes with automated daily rotation to Unity's cloud.</li>
-          <li><strong>Content management system for mobile game with task scheduling, role-based authentication, activity logs, and  Cloudflare R2 backups. </strong> Eliminated 12+ hours/month of manual work</strong> via.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Pawcasso -->
-    <div class="project-row">
-      <div>
-        <div class="project-name">Pawcasso</div>
-        <div class="project-platform">PC · University Showcase · Unity / C#</div>
-        <a href="https://beetjuicer.itch.io/pawcasso"><img src="pawcasso-preview.png" alt="Pawcasso" class="project-thumb" /></a>
-      </div>
-      <div class="project-contributions">
-        <ul>
-          <li><strong>Team Lead & Lead Developer</strong> — designed and developed a skill-based paint charge combat system inspired by Splatoon, iterating through paper and game prototypes.</li>
-          <li><strong>Led a 10-member team</strong> across code, art, and audio. Achieved highest engagement score at the university tech showcase.</li>
-        </ul>
-      </div>
-      <div class="project-links">
-        <a href="https://beetjuicer.itch.io/pawcasso">Itch.io</a>
-      </div>
-    </div>
-
-    <!-- A Slime Out of Time -->
-    <div class="project-row">
-      <div>
-        <div class="project-name">A Slime Out of Time</div>
-        <div class="project-platform">PC · Solo · Unity / C#</div>
-        <a href="https://beetjuicer.itch.io/asoot"><img src="https://img.itch.zone/aW1nLzkyNDY0MTYucG5n/original/Ze%2BPHZ.png" alt="A Slime Out of Time" class="project-thumb" /></a>
-      </div>
-      <div class="project-contributions">
-        <ul>
-          <li>Solo-developed <strong>2D pixel art platformer</strong> — designed and implemented all gameplay systems, dialogue, and progression.</li>
-          <li>Built a platformer experience using state machines, Unity Timeline cutscenes, NPC interactions and dialogue with Ink, and a Celeste-inspired tutorial flow.</li>
-        </ul>
-      </div>
-      <div class="project-links">
-        <a href="https://beetjuicer.itch.io/asoot">Itch.io</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══ SHOWCASE ═══ -->
-<section id="showcase">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="section-num">02</span>
-      <h2>Programming Showcase</h2>
-    </div>
-
-    <div class="showcase-list">
-
-      <!-- 01 BOIDS -->
-      <div class="showcase-card">
-        <div class="card-header" onclick="toggleCard(this)">
-          <div class="card-summary">
-            <div class="card-num">01</div>
-            <div class="card-title">Boids Simulation</div>
-          </div>
-          <div class="card-header-right">
-            <div class="card-tags">
-              <span class="tag-pill">Flocking</span>
-              <span class="tag-pill">Steering AI</span>
-            </div>
-            <span class="card-chevron">▶</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-body-inner">
-            <p class="card-desc">Flocking simulation using separation, alignment, and cohesion steering behaviours. Has complex obstacle avoidance. Uses compute shaders for performance.</p>
-            <div class="embed-area">
-              <video autoplay loop muted playsinline>
-                <source src="preview_boids.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="card-body-footer">
-              <a class="itch-btn" href="https://beetjuicer.itch.io/YOUR_BOIDS_PAGE" target="_blank">
-                <img src="https://static.itch.io/images/badge-color.svg" alt="itch.io" height="16" />
-                Play on itch.io
-              </a>
-            </div>
-            <div class="scripts-toggle">
-              <button class="toggle-btn" onclick="toggleScripts(this)">
-                <span class="scripts-icon">{&nbsp;}</span> View Scripts
-              </button>
-            </div>
-              <div class="scripts-panel" data-project="boids">
-                <div class="file-tabs"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 02 PERLIN NOISE -->
-      <div class="showcase-card">
-        <div class="card-header" onclick="toggleCard(this)">
-          <div class="card-summary">
-            <div class="card-num">02</div>
-            <div class="card-title">Perlin Noise World Generation</div>
-          </div>
-          <div class="card-header-right">
-            <div class="card-tags">
-              <span class="tag-pill">Proc Gen</span>
-              <span class="tag-pill">Tilemaps</span>
-            </div>
-            <span class="card-chevron">▶</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-body-inner">
-            <p class="card-desc">Tile-based world generator using layered Perlin noise for biome and terrain classification. Configurable octaves, persistence, and lacunarity. Biome thresholds drive tile selection for diverse layouts from a single seed.</p>
-            <div class="embed-area">
-              <video autoplay loop muted playsinline>
-                <source src="preview_perlin.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="card-body-footer">
-              <a class="itch-btn" href="https://beetjuicer.itch.io/terrain" target="_blank">
-                <img src="https://static.itch.io/images/badge-color.svg" alt="itch.io" height="16" />
-                Play on itch.io
-              </a>
-            </div>
-            <div class="scripts-toggle">
-              <button class="toggle-btn" onclick="toggleScripts(this)">
-                <span class="scripts-icon">{&nbsp;}</span> View Scripts
-              </button>
-            </div>
-            <div class="scripts-panel">
-              <div class="file-tabs">
-                <button class="file-tab active" onclick="switchTab(this, 'perlin-1')">WorldGenerator.cs</button>
-                <button class="file-tab" onclick="switchTab(this, 'perlin-2')">BiomeClassifier.cs</button>
-              </div>
-              <div class="file-content active" id="perlin-1"><pre><code>// WorldGenerator.cs</code></pre></div>
-              <div class="file-content" id="perlin-2"><pre><code>// BiomeClassifier.cs</code></pre></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 03 DUNGEON GEN -->
-      <div class="showcase-card">
-        <div class="card-header" onclick="toggleCard(this)">
-          <div class="card-summary">
-            <div class="card-num">03</div>
-            <div class="card-title">Procedural Dungeon Layout</div>
-          </div>
-          <div class="card-header-right">
-            <div class="card-tags">
-              <span class="tag-pill">Proc Gen</span>
-              <span class="tag-pill">BSP / Graph</span>
-            </div>
-            <span class="card-chevron">▶</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-body-inner">
-            <p class="card-desc">Dungeon generator using BSP partitioning to place rooms with guaranteed traversability. MST connects rooms via corridors and outputs a navigable graph ready for AI pathing.</p>
-            <div class="embed-area">
-              <video autoplay loop muted playsinline>
-                <source src="preview_dungeon.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="card-body-footer">
-              <a class="itch-btn" href="https://beetjuicer.itch.io/YOUR_DUNGEON_PAGE" target="_blank">
-                <img src="https://static.itch.io/images/badge-color.svg" alt="itch.io" height="16" />
-                Play on itch.io
-              </a>
-            </div>
-            <div class="scripts-toggle">
-              <button class="toggle-btn" onclick="toggleScripts(this)">
-                <span class="scripts-icon">{&nbsp;}</span> View Scripts
-              </button>
-            </div>
-            <div class="scripts-panel">
-              <div class="file-tabs">
-                <button class="file-tab active" onclick="switchTab(this, 'dungeon-1')">BSPDungeonGen.cs</button>
-                <button class="file-tab" onclick="switchTab(this, 'dungeon-2')">RoomGraph.cs</button>
-              </div>
-              <div class="file-content active" id="dungeon-1"><pre><code>// BSPDungeonGen.cs</code></pre></div>
-              <div class="file-content" id="dungeon-2"><pre><code>// RoomGraph.cs</code></pre></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 04 AI + POSSESSION -->
-      <div class="showcase-card">
-        <div class="card-header" onclick="toggleCard(this)">
-          <div class="card-summary">
-            <div class="card-num">04</div>
-            <div class="card-title">AI &amp; Possession Showcase</div>
-          </div>
-          <div class="card-header-right">
-            <div class="card-tags">
-              <span class="tag-pill">Actor Pattern</span>
-              <span class="tag-pill">Controller Pattern</span>
-              <span class="tag-pill">FSM</span>
-            </div>
-            <span class="card-chevron">▶</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-body-inner">
-            <p class="card-desc">Decoupled actor/controller architecture enabling seamless AI-to-player possession. Actors own all state; controllers feed inputs. FSM drives AI patrol, alert, and idle. Player can possess any actor by swapping its controller at runtime.</p>
-            <div class="embed-area">
-              <video autoplay loop muted playsinline>
-                <source src="preview_ai.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="card-body-footer">
-              <a class="itch-btn" href="https://beetjuicer.itch.io/YOUR_AI_PAGE" target="_blank">
-                <img src="https://static.itch.io/images/badge-color.svg" alt="itch.io" height="16" />
-                Play on itch.io
-              </a>
-            </div>
-            <div class="scripts-toggle">
-              <button class="toggle-btn" onclick="toggleScripts(this)">
-                <span class="scripts-icon">{&nbsp;}</span> View Scripts
-              </button>
-            </div>
-            <div class="scripts-panel">
-              <div class="file-tabs">
-                <button class="file-tab active" onclick="switchTab(this, 'ai-1')">ActorBase.cs</button>
-                <button class="file-tab" onclick="switchTab(this, 'ai-2')">AIController.cs</button>
-                <button class="file-tab" onclick="switchTab(this, 'ai-3')">PossessionSystem.cs</button>
-              </div>
-              <div class="file-content active" id="ai-1"><pre><code>// ActorBase.cs</code></pre></div>
-              <div class="file-content" id="ai-2"><pre><code>// AIController.cs</code></pre></div>
-              <div class="file-content" id="ai-3"><pre><code>// PossessionSystem.cs</code></pre></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 05 BIRD FLIGHT -->
-      <div class="showcase-card">
-        <div class="card-header" onclick="toggleCard(this)">
-          <div class="card-summary">
-            <div class="card-num">05</div>
-            <div class="card-title">Bird Flight Mechanics</div>
-          </div>
-          <div class="card-header-right">
-            <div class="card-tags">
-              <span class="tag-pill">FSM</span>
-              <span class="tag-pill">Splines</span>
-              <span class="tag-pill">Physics</span>
-            </div>
-            <span class="card-chevron">▶</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-body-inner">
-            <p class="card-desc">FSM-driven bird flight with momentum handoff between states — dive speed feeds directly into glide velocity, making fast dives launch into swift, weighty glides. Lift and drag scale with entry speed, and spline-defined wind paths give birds a natural sense of flow through the environment.</p>
-            <div class="embed-area">
-              <video autoplay loop muted playsinline>
-                <source src="preview_bird.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="card-body-footer">
-              <a class="itch-btn" href="https://beetjuicer.itch.io/YOUR_BIRD_PAGE" target="_blank">
-                <img src="https://static.itch.io/images/badge-color.svg" alt="itch.io" height="16" />
-                Play on itch.io
-              </a>
-            </div>
-            <div class="scripts-toggle">
-              <button class="toggle-btn" onclick="toggleScripts(this)">
-                <span class="scripts-icon">{&nbsp;}</span> View Scripts
-              </button>
-            </div>
-            <div class="scripts-panel">
-              <div class="file-tabs">
-                <button class="file-tab active" onclick="switchTab(this, 'bird-1')">BirdFSM.cs</button>
-                <button class="file-tab" onclick="switchTab(this, 'bird-2')">GlideState.cs</button>
-                <button class="file-tab" onclick="switchTab(this, 'bird-3')">WindSpline.cs</button>
-              </div>
-              <div class="file-content active" id="bird-1"><pre><code>// BirdFSM.cs</code></pre></div>
-              <div class="file-content" id="bird-2"><pre><code>// GlideState.cs</code></pre></div>
-              <div class="file-content" id="bird-3"><pre><code>// WindSpline.cs</code></pre></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 06 TIME CONTROL -->
-      <div class="showcase-card">
-        <div class="card-header" onclick="toggleCard(this)">
-          <div class="card-summary">
-            <div class="card-num">06</div>
-            <div class="card-title">Time Control Mechanics</div>
-          </div>
-          <div class="card-header-right">
-            <div class="card-tags">
-              <span class="tag-pill">Command Pattern</span>
-              <span class="tag-pill">Undo / Replay</span>
-            </div>
-            <span class="card-chevron">▶</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-body-inner">
-            <p class="card-desc">Rewind and replay system built on the Command pattern. Every entity is a TimeReversible object except for the player, allowing for time control shenanigans.</p>
-            <div class="embed-area">
-              <video autoplay loop muted playsinline>
-                <source src="preview_time.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="card-body-footer">
-              <a class="itch-btn" href="https://beetjuicer.itch.io/YOUR_TIME_PAGE" target="_blank">
-                <img src="https://static.itch.io/images/badge-color.svg" alt="itch.io" height="16" />
-                Play on itch.io
-              </a>
-            </div>
-            <div class="scripts-toggle">
-              <button class="toggle-btn" onclick="toggleScripts(this)">
-                <span class="scripts-icon">{&nbsp;}</span> View Scripts
-              </button>
-            </div>
-            <div class="scripts-panel">
-              <div class="file-tabs">
-                <button class="file-tab active" onclick="switchTab(this, 'time-1')">TimeManager.cs</button>
-                <button class="file-tab" onclick="switchTab(this, 'time-2')">TimeReversible.cs</button>
-              </div>
-              <div class="file-content active" id="time-1"><pre><code>// TimeManager.cs</code></pre></div>
-              <div class="file-content" id="time-2"><pre><code>// TimeReversible.cs</code></pre></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+<div id="slot-published"></div>
+<div id="slot-showcase"></div>
+<div id="slot-requirements"></div>
+<div id="slot-contact"></div>
 
 <div class="wrap">
   <footer>
     <p><span class="avail-dot"></span>Available for work</p>
     <p>
-      <!-- ✏️ EDIT -->
       <a href="mailto:cc.capilitan@gmail.com"><i data-lucide="mail"></i> Email</a> &nbsp;·&nbsp;
       <a href="https://github.com/beetjuicer"><span class="si si-github"></span> GitHub</a> &nbsp;·&nbsp;
-      <a href="https://www.linkedin.com/in/carl-capilitan/"> <span class="si si-linkedin"></span> LinkedIn</a>
+      <a href="https://www.linkedin.com/in/carl-capilitan/"><span class="si si-linkedin"></span> LinkedIn</a>
+    </p>
   </footer>
 </div>
 
 <script src="main.js"></script>
-<script>lucide.createIcons();</script>
+<script>
+  async function loadSection(id, file) {
+    const res = await fetch(file);
+    const html = await res.text();
+    document.getElementById(id).innerHTML = html;
+  }
+
+  Promise.all([
+    loadSection('slot-header',       'sections/header.html'),
+    loadSection('slot-published',    'sections/published.html'),
+    loadSection('slot-showcase',     'sections/showcase.html'),
+    loadSection('slot-requirements', 'sections/requirements.html'),
+    loadSection('slot-contact',      'sections/contact.html'),
+  ]).then(() => {
+    lucide.createIcons();
+    hljs.highlightAll();
+    initReveal();    // call any main.js functions that query the DOM here
+  });
+</script>
+
 </body>
 </html>

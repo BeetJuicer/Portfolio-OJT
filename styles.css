@@ -529,3 +529,140 @@ section, .wrap { position: relative; z-index: 1; }
 }
 .project-row.reveal { transition-delay: calc(var(--i, 0) * 0.08s); }
 .showcase-card.reveal { transition-delay: calc(var(--i, 0) * 0.07s); }
+
+/* ----- REQUIREMENTS ------*//* OJT REQUIREMENTS */
+.doc-list { display: flex; flex-direction: column; gap: 2px; }
+
+.doc-row-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 36px;
+}
+
+.doc-meta { display: flex; align-items: baseline; gap: 16px; }
+
+.doc-title {
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.doc-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+/* Preview thumbnail */
+.doc-preview-link {
+  display: block;
+  margin: 0 36px 28px;
+  text-decoration: none;
+}
+
+.doc-preview {
+  position: relative;
+  width: 240px;
+  height: 160px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--bg);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.doc-preview-link:hover .doc-preview { border-color: var(--text); }
+
+.doc-preview iframe {
+  width: 200%;
+  height: 200%;
+  transform: scale(0.5);
+  transform-origin: top left;
+  pointer-events: none;
+  display: block;
+  border: none;
+}
+
+/* Always-visible overlay bar at bottom */
+.doc-preview-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26,25,23,0.72) 0%, rgba(26,25,23,0) 55%);
+  display: flex;
+  align-items: flex-end;
+  padding: 10px 12px;
+  transition: background 0.2s;
+}
+.doc-preview-link:hover .doc-preview-overlay {
+  background: linear-gradient(to top, rgba(26,25,23,0.88) 0%, rgba(26,25,23,0.1) 55%);
+}
+
+.doc-preview-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.doc-preview-label svg.lucide {
+  width: 11px;
+  height: 11px;
+  color: #fff;
+  margin: 0;
+}
+
+@media (max-width: 680px) {
+  .doc-row-header { padding: 16px 24px; }
+  .doc-meta { flex-direction: column; gap: 4px; }
+  .doc-preview-link { margin: 0 24px 24px; }
+  .doc-preview { width: 100%; height: 180px; }
+}
+
+/* ─── NAME FLIP ─── */
+/* ─── NAME FLIP ─── */
+.name-flip-outer {
+  perspective: 800px;
+}
+
+.name-flip-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.name-flip-outer.flipped .name-flip-inner {
+  transform: rotateX(180deg);
+}
+
+.name-front,
+.name-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.name-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateX(180deg);
+  color: var(--muted);
+}
+.name-hint-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--faint);
+  vertical-align: middle;
+  margin-left: 8px;
+  transition: color 0.2s;
+}
+.name-flip-inner:hover .name-hint-icon {
+  color: var(--muted);
+}
