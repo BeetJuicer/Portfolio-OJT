@@ -9,6 +9,11 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@13/font/simple-icons.min.css">
   <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!--highlight.js-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
 </head>
 <body>
 
@@ -160,6 +165,15 @@
                 Play on itch.io
               </a>
             </div>
+            <div class="scripts-toggle">
+              <button class="toggle-btn" onclick="toggleScripts(this)">
+                <span class="scripts-icon">{&nbsp;}</span> View Scripts
+              </button>
+            </div>
+              <div class="scripts-panel" data-project="boids">
+                <div class="file-tabs"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -183,14 +197,28 @@
           <div class="card-body-inner">
             <p class="card-desc">Tile-based world generator using layered Perlin noise for biome and terrain classification. Configurable octaves, persistence, and lacunarity. Biome thresholds drive tile selection for diverse layouts from a single seed.</p>
             <div class="embed-area">
-              <!-- ✏️ GIF: <img src="your-perlin.gif" alt="Perlin noise demo" /> -->
-              <div class="embed-hint">✏️ Drop your GIF here</div>
+              <video autoplay loop muted playsinline>
+                <source src="preview_perlin.mp4" type="video/mp4">
+              </video>
             </div>
             <div class="card-body-footer">
               <a class="itch-btn" href="https://beetjuicer.itch.io/terrain" target="_blank">
                 <img src="https://static.itch.io/images/badge-color.svg" alt="itch.io" height="16" />
                 Play on itch.io
               </a>
+            </div>
+            <div class="scripts-toggle">
+              <button class="toggle-btn" onclick="toggleScripts(this)">
+                <span class="scripts-icon">{&nbsp;}</span> View Scripts
+              </button>
+            </div>
+            <div class="scripts-panel">
+              <div class="file-tabs">
+                <button class="file-tab active" onclick="switchTab(this, 'perlin-1')">WorldGenerator.cs</button>
+                <button class="file-tab" onclick="switchTab(this, 'perlin-2')">BiomeClassifier.cs</button>
+              </div>
+              <div class="file-content active" id="perlin-1"><pre><code>// WorldGenerator.cs</code></pre></div>
+              <div class="file-content" id="perlin-2"><pre><code>// BiomeClassifier.cs</code></pre></div>
             </div>
           </div>
         </div>
@@ -215,14 +243,28 @@
           <div class="card-body-inner">
             <p class="card-desc">Dungeon generator using BSP partitioning to place rooms with guaranteed traversability. MST connects rooms via corridors and outputs a navigable graph ready for AI pathing.</p>
             <div class="embed-area">
-              <!-- ✏️ GIF: <img src="your-dungeon.gif" alt="Dungeon gen demo" /> -->
-              <div class="embed-hint">✏️ Drop your GIF here</div>
+              <video autoplay loop muted playsinline>
+                <source src="preview_dungeon.mp4" type="video/mp4">
+              </video>
             </div>
             <div class="card-body-footer">
               <a class="itch-btn" href="https://beetjuicer.itch.io/YOUR_DUNGEON_PAGE" target="_blank">
                 <img src="https://static.itch.io/images/badge-color.svg" alt="itch.io" height="16" />
                 Play on itch.io
               </a>
+            </div>
+            <div class="scripts-toggle">
+              <button class="toggle-btn" onclick="toggleScripts(this)">
+                <span class="scripts-icon">{&nbsp;}</span> View Scripts
+              </button>
+            </div>
+            <div class="scripts-panel">
+              <div class="file-tabs">
+                <button class="file-tab active" onclick="switchTab(this, 'dungeon-1')">BSPDungeonGen.cs</button>
+                <button class="file-tab" onclick="switchTab(this, 'dungeon-2')">RoomGraph.cs</button>
+              </div>
+              <div class="file-content active" id="dungeon-1"><pre><code>// BSPDungeonGen.cs</code></pre></div>
+              <div class="file-content" id="dungeon-2"><pre><code>// RoomGraph.cs</code></pre></div>
             </div>
           </div>
         </div>
@@ -248,14 +290,30 @@
           <div class="card-body-inner">
             <p class="card-desc">Decoupled actor/controller architecture enabling seamless AI-to-player possession. Actors own all state; controllers feed inputs. FSM drives AI patrol, alert, and idle. Player can possess any actor by swapping its controller at runtime.</p>
             <div class="embed-area">
-              <!-- ✏️ GIF: <img src="your-ai.gif" alt="AI possession demo" /> -->
-              <div class="embed-hint">✏️ Drop your GIF here</div>
+              <video autoplay loop muted playsinline>
+                <source src="preview_ai.mp4" type="video/mp4">
+              </video>
             </div>
             <div class="card-body-footer">
               <a class="itch-btn" href="https://beetjuicer.itch.io/YOUR_AI_PAGE" target="_blank">
                 <img src="https://static.itch.io/images/badge-color.svg" alt="itch.io" height="16" />
                 Play on itch.io
               </a>
+            </div>
+            <div class="scripts-toggle">
+              <button class="toggle-btn" onclick="toggleScripts(this)">
+                <span class="scripts-icon">{&nbsp;}</span> View Scripts
+              </button>
+            </div>
+            <div class="scripts-panel">
+              <div class="file-tabs">
+                <button class="file-tab active" onclick="switchTab(this, 'ai-1')">ActorBase.cs</button>
+                <button class="file-tab" onclick="switchTab(this, 'ai-2')">AIController.cs</button>
+                <button class="file-tab" onclick="switchTab(this, 'ai-3')">PossessionSystem.cs</button>
+              </div>
+              <div class="file-content active" id="ai-1"><pre><code>// ActorBase.cs</code></pre></div>
+              <div class="file-content" id="ai-2"><pre><code>// AIController.cs</code></pre></div>
+              <div class="file-content" id="ai-3"><pre><code>// PossessionSystem.cs</code></pre></div>
             </div>
           </div>
         </div>
@@ -284,12 +342,27 @@
               <video autoplay loop muted playsinline>
                 <source src="preview_bird.mp4" type="video/mp4">
               </video>
-              </div>
+            </div>
             <div class="card-body-footer">
               <a class="itch-btn" href="https://beetjuicer.itch.io/YOUR_BIRD_PAGE" target="_blank">
                 <img src="https://static.itch.io/images/badge-color.svg" alt="itch.io" height="16" />
                 Play on itch.io
               </a>
+            </div>
+            <div class="scripts-toggle">
+              <button class="toggle-btn" onclick="toggleScripts(this)">
+                <span class="scripts-icon">{&nbsp;}</span> View Scripts
+              </button>
+            </div>
+            <div class="scripts-panel">
+              <div class="file-tabs">
+                <button class="file-tab active" onclick="switchTab(this, 'bird-1')">BirdFSM.cs</button>
+                <button class="file-tab" onclick="switchTab(this, 'bird-2')">GlideState.cs</button>
+                <button class="file-tab" onclick="switchTab(this, 'bird-3')">WindSpline.cs</button>
+              </div>
+              <div class="file-content active" id="bird-1"><pre><code>// BirdFSM.cs</code></pre></div>
+              <div class="file-content" id="bird-2"><pre><code>// GlideState.cs</code></pre></div>
+              <div class="file-content" id="bird-3"><pre><code>// WindSpline.cs</code></pre></div>
             </div>
           </div>
         </div>
@@ -312,7 +385,7 @@
         </div>
         <div class="card-body">
           <div class="card-body-inner">
-            <p class="card-desc">Rewind and replay system built on the Command pattern. Every entity is a TimeReversible object except for the player, allowing for time contrl shenanigans.</p>
+            <p class="card-desc">Rewind and replay system built on the Command pattern. Every entity is a TimeReversible object except for the player, allowing for time control shenanigans.</p>
             <div class="embed-area">
               <video autoplay loop muted playsinline>
                 <source src="preview_time.mp4" type="video/mp4">
@@ -323,6 +396,19 @@
                 <img src="https://static.itch.io/images/badge-color.svg" alt="itch.io" height="16" />
                 Play on itch.io
               </a>
+            </div>
+            <div class="scripts-toggle">
+              <button class="toggle-btn" onclick="toggleScripts(this)">
+                <span class="scripts-icon">{&nbsp;}</span> View Scripts
+              </button>
+            </div>
+            <div class="scripts-panel">
+              <div class="file-tabs">
+                <button class="file-tab active" onclick="switchTab(this, 'time-1')">TimeManager.cs</button>
+                <button class="file-tab" onclick="switchTab(this, 'time-2')">TimeReversible.cs</button>
+              </div>
+              <div class="file-content active" id="time-1"><pre><code>// TimeManager.cs</code></pre></div>
+              <div class="file-content" id="time-2"><pre><code>// TimeReversible.cs</code></pre></div>
             </div>
           </div>
         </div>

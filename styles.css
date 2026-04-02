@@ -258,19 +258,23 @@ h2 {
   flex-shrink: 0;
 }
 .showcase-card.open .card-chevron { transform: rotate(90deg); }
+.showcase-card.open .card-body {
+  grid-template-rows: 1fr;
+}
 
 /* collapsed: body hidden */
 .card-body {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows 0.3s ease;
+  min-width: 0;
 }
-.showcase-card.open .card-body { grid-template-rows: 1fr; }
 
 .card-body-inner {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .card-body-footer {
@@ -362,6 +366,7 @@ h2 {
   border: 1px solid var(--border);
   border-radius: 2px;
   background: var(--bg);
+  min-width: 0;
   overflow: hidden;
 }
 .scripts-panel.visible { display: block; }
@@ -394,7 +399,11 @@ h2 {
 .file-tab:hover { color: var(--text); }
 .file-tab.active { color: var(--text); background: var(--bg); border-bottom-color: var(--accent); }
 
-.file-content { display: none; padding: 20px 24px; }
+.file-content {
+  display: none;
+  padding: 20px 24px;
+  min-width: 0;
+}
 .file-content.active { display: block; }
 
 .file-label {
@@ -408,25 +417,27 @@ h2 {
 
 .file-content pre {
   width: 100%;
-  min-height: 260px;
+  max-height: 400px;
   background: transparent;
   border: 1px solid var(--border);
   border-radius: 2px;
-  color: var(--text);
   font-family: var(--mono);
   font-size: 11.5px;
   font-weight: 300;
   line-height: 1.75;
   padding: 16px 18px;
   overflow-x: auto;
+  overflow-y: auto;
   white-space: pre;
   margin: 0;
+  box-sizing: border-box;
 }
+
 .file-content pre code {
   background: transparent;
   font-family: inherit;
   font-size: inherit;
-  color: inherit;
+  /* remove color: inherit — let hljs color the tokens */
 }
 
 /* ─── FOOTER ─── */
