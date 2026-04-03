@@ -19,49 +19,54 @@ function toggleScripts(btn) {
   btn.closest('.scripts-toggle').nextElementSibling.classList.toggle('visible');
 }
 
-// ─── AUTO-BUILD SCRIPT TABS ───
-document.querySelectorAll('.scripts-panel[data-project]').forEach(panel => {
-  const project = panel.getAttribute('data-project');
-  const base = `cs-scripts/${project}`;
-  const tabBar = panel.querySelector('.file-tabs');
+function initShowcase() {
+  // ─── AUTO-BUILD SCRIPT TABS ───
+  document.querySelectorAll('.scripts-panel[data-project]').forEach(panel => {
+    const project = panel.getAttribute('data-project');
+    const base = `cs-scripts/${project}`;
+    const tabBar = panel.querySelector('.file-tabs');
 
-  fetch(`${base}/manifest.json`)
-    .then(r => r.json())
-    .then(files => {
-      files.forEach((filename, i) => {
-        const tab = document.createElement('button');
-        tab.className = 'file-tab' + (i === 0 ? ' active' : '');
-        tab.textContent = filename;
+    fetch(`${base}/manifest.json`)
+      .then(r => r.json())
+      .then(files => {
+        files.forEach((filename, i) => {
+          const tab = document.createElement('button');
+          tab.className = 'file-tab' + (i === 0 ? ' active' : '');
+          tab.textContent = filename;
 
-        const content = document.createElement('div');
-        content.className = 'file-content' + (i === 0 ? ' active' : '');
-        const pre = document.createElement('pre');
-        const code = document.createElement('code');
-        code.textContent = 'Loading...';
-        pre.appendChild(code);
-        content.appendChild(pre);
+          const content = document.createElement('div');
+          content.className = 'file-content' + (i === 0 ? ' active' : '');
+          const pre = document.createElement('pre');
+          const code = document.createElement('code');
+          code.textContent = 'Loading...';
+          pre.appendChild(code);
+          content.appendChild(pre);
 
-        tab.onclick = () => {
-          panel.querySelectorAll('.file-tab').forEach(t => t.classList.remove('active'));
-          panel.querySelectorAll('.file-content').forEach(c => c.classList.remove('active'));
-          tab.classList.add('active');
-          content.classList.add('active');
-        };
+          tab.onclick = () => {
+            panel.querySelectorAll('.file-tab').forEach(t => t.classList.remove('active'));
+            panel.querySelectorAll('.file-content').forEach(c => c.classList.remove('active'));
+            tab.classList.add('active');
+            content.classList.add('active');
+          };
 
-        tabBar.appendChild(tab);
-        panel.appendChild(content);
+          tabBar.appendChild(tab);
+          panel.appendChild(content);
 
-        fetch(`${base}/${filename}`)
-          .then(r => r.ok ? r.text() : Promise.reject())
-          .then(text => {
-            code.textContent = text;
-            hljs.highlightElement(code);
-          })
-          .catch(() => { code.textContent = `// Could not load ${filename}`; });
-      });
-    })
-    .catch(() => { tabBar.textContent = '// No manifest found'; });
-});
+          fetch(`${base}/${filename}`)
+            .then(r => r.ok ? r.text() : Promise.reject())
+            .then(text => {
+              code.textContent = text;
+              hljs.highlightElement(code);
+            })
+            .catch(() => { code.textContent = `// Could not load ${filename}`; });
+        });
+      })
+      .catch(() => { tabBar.textContent = '// No manifest found'; });
+  });
+}
+
+function initReveal(){
+
   // ─── ACTIVE NAV HIGHLIGHT ───
   const navObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -73,7 +78,7 @@ document.querySelectorAll('.scripts-panel[data-project]').forEach(panel => {
     });
   }, { threshold: 0.3 });
   document.querySelectorAll('section[id]').forEach(s => navObs.observe(s));
-
+  
   // ─── SCROLL REVEAL ───
   document.querySelectorAll('.project-row').forEach((el, i) => {
     el.classList.add('reveal');
@@ -84,26 +89,27 @@ document.querySelectorAll('.scripts-panel[data-project]').forEach(panel => {
     el.style.setProperty('--i', i);
   });
   document.querySelectorAll('.section-head').forEach(el => el.classList.add('reveal'));
-
+  
   const revealObs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-
+}
+  
   // ─── BACKGROUND CANVAS ANIMATION ───
   (function () {
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
     const isDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
-
+    
     const BALLS = 8;
     let W, H, balls = [];
-
+    
     function resize() {
       W = canvas.width = window.innerWidth;
       H = canvas.height = window.innerHeight;
     }
-
+    
     function makeBall() {
       const r = 40 + Math.random() * 90;
       return {
