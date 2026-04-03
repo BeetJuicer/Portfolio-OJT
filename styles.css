@@ -666,3 +666,11 @@ section, .wrap { position: relative; z-index: 1; }
 .name-flip-inner:hover .name-hint-icon {
   color: var(--muted);
 }
+
+nav {
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+}
+nav::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
