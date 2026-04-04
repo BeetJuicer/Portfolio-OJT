@@ -43,9 +43,11 @@
                 <span class="scripts-icon">{&nbsp;}</span> View Scripts
               </button>
             </div>
-              <div class="scripts-panel" data-project="boids">
-                <div class="file-tabs"></div>
-              </div>
+
+            <div class="scripts-panel" data-project="boids">
+              <div class="file-tabs"></div>
+            </div>
+            
             </div>
           </div>
         </div>
@@ -85,14 +87,11 @@
                 <span class="scripts-icon">{&nbsp;}</span> View Scripts
               </button>
             </div>
-            <div class="scripts-panel">
-              <div class="file-tabs">
-                <button class="file-tab active" onclick="switchTab(this, 'perlin-1')">WorldGenerator.cs</button>
-                <button class="file-tab" onclick="switchTab(this, 'perlin-2')">BiomeClassifier.cs</button>
-              </div>
-              <div class="file-content active" id="perlin-1"><pre><code>// WorldGenerator.cs</code></pre></div>
-              <div class="file-content" id="perlin-2"><pre><code>// BiomeClassifier.cs</code></pre></div>
+
+            <div class="scripts-panel" data-project="terrain">
+              <div class="file-tabs"></div>
             </div>
+            
           </div>
         </div>
       </div>
@@ -114,7 +113,7 @@
         </div>
         <div class="card-body">
           <div class="card-body-inner">
-            <p class="card-desc">Dungeon generator using BSP partitioning to place rooms with guaranteed traversability. MST connects rooms via corridors and outputs a navigable graph ready for AI pathing.</p>
+            <p class="card-desc">Dungeon generation that features a frontier-based growth algorithm to generate procedural 2D dungeons in Unity. It utilizes depth-weighted scaling to dynamically adjust room sizes and corridor lengths as the layout expands from the starting point. To ensure varied gameplay, the system includes an automated carving pass for internal obstacles and integrates directly with Unity Tilemaps for efficient, grid-based rendering.</p>
             <div class="embed-area">
               <video autoplay loop muted playsinline>
                 <source src="preview_dungeon.mp4" type="video/mp4">
@@ -131,13 +130,9 @@
                 <span class="scripts-icon">{&nbsp;}</span> View Scripts
               </button>
             </div>
-            <div class="scripts-panel">
-              <div class="file-tabs">
-                <button class="file-tab active" onclick="switchTab(this, 'dungeon-1')">BSPDungeonGen.cs</button>
-                <button class="file-tab" onclick="switchTab(this, 'dungeon-2')">RoomGraph.cs</button>
-              </div>
-              <div class="file-content active" id="dungeon-1"><pre><code>// BSPDungeonGen.cs</code></pre></div>
-              <div class="file-content" id="dungeon-2"><pre><code>// RoomGraph.cs</code></pre></div>
+
+            <div class="scripts-panel" data-project="dungeon">
+              <div class="file-tabs"></div>
             </div>
           </div>
         </div>
@@ -178,15 +173,9 @@
                 <span class="scripts-icon">{&nbsp;}</span> View Scripts
               </button>
             </div>
-            <div class="scripts-panel">
-              <div class="file-tabs">
-                <button class="file-tab active" onclick="switchTab(this, 'ai-1')">ActorBase.cs</button>
-                <button class="file-tab" onclick="switchTab(this, 'ai-2')">AIController.cs</button>
-                <button class="file-tab" onclick="switchTab(this, 'ai-3')">PossessionSystem.cs</button>
-              </div>
-              <div class="file-content active" id="ai-1"><pre><code>// ActorBase.cs</code></pre></div>
-              <div class="file-content" id="ai-2"><pre><code>// AIController.cs</code></pre></div>
-              <div class="file-content" id="ai-3"><pre><code>// PossessionSystem.cs</code></pre></div>
+
+            <div class="scripts-panel" data-project="possess">
+              <div class="file-tabs"></div>
             </div>
           </div>
         </div>
@@ -227,15 +216,9 @@
                 <span class="scripts-icon">{&nbsp;}</span> View Scripts
               </button>
             </div>
-            <div class="scripts-panel">
-              <div class="file-tabs">
-                <button class="file-tab active" onclick="switchTab(this, 'bird-1')">BirdFSM.cs</button>
-                <button class="file-tab" onclick="switchTab(this, 'bird-2')">GlideState.cs</button>
-                <button class="file-tab" onclick="switchTab(this, 'bird-3')">WindSpline.cs</button>
-              </div>
-              <div class="file-content active" id="bird-1"><pre><code>// BirdFSM.cs</code></pre></div>
-              <div class="file-content" id="bird-2"><pre><code>// GlideState.cs</code></pre></div>
-              <div class="file-content" id="bird-3"><pre><code>// WindSpline.cs</code></pre></div>
+
+            <div class="scripts-panel" data-project="bird">
+              <div class="file-tabs"></div>
             </div>
           </div>
         </div>
@@ -258,7 +241,7 @@
         </div>
         <div class="card-body">
           <div class="card-body-inner">
-            <p class="card-desc">Rewind and replay system built on the Command pattern. Every entity is a TimeReversible object except for the player, allowing for time control shenanigans.</p>
+            <p class="card-desc">Rewind and replay system built on the Command pattern. Every entity is a TimeReversible object except for the player, allowing for time control shenanigans. Objects snapshots are only recorded every interval frames and lerped per snapshot to improve performance.</p>
             <div class="embed-area">
               <video autoplay loop muted playsinline>
                 <source src="preview_time.mp4" type="video/mp4">
@@ -275,13 +258,58 @@
                 <span class="scripts-icon">{&nbsp;}</span> View Scripts
               </button>
             </div>
-            <div class="scripts-panel">
-              <div class="file-tabs">
-                <button class="file-tab active" onclick="switchTab(this, 'time-1')">TimeManager.cs</button>
-                <button class="file-tab" onclick="switchTab(this, 'time-2')">TimeReversible.cs</button>
-              </div>
-              <div class="file-content active" id="time-1"><pre><code>// TimeManager.cs</code></pre></div>
-              <div class="file-content" id="time-2"><pre><code>// TimeReversible.cs</code></pre></div>
+
+            <div class="scripts-panel" data-project="time">
+              <div class="file-tabs"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- 01 BULLET HELL -->
+      <div class="showcase-card">
+        <div class="card-header" onclick="toggleCard(this)">
+          <div class="card-summary">
+            <div class="card-num">07</div>
+            <div class="card-title">Bullet Hell Generator</div>
+          </div>
+          <div class="card-header-right">
+            <div class="card-tags">
+              <span class="tag-pill">Procedural</span>
+              <span class="tag-pill">Game Systems</span>
+              <span class="tag-pill">Unity</span>
+            </div>
+            <span class="card-chevron">▶</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-body-inner">
+            <p class="card-desc">
+              Modular bullet hell system that generates attack sequences through configurable waves and patterns. 
+              Patterns (spirals, bursts, spreads, lasers, etc.) are defined as reusable ScriptableObjects, allowing 
+              designers to quickly create, tweak, and combine behaviors into complex encounters.
+            </p>
+            <div class="embed-area">
+              <video autoplay loop muted playsinline>
+                <source src="preview_bullethell.mp4" type="video/mp4">
+              </video>
+            </div>
+            <!-- <div class="card-body-footer">
+              <a class="itch-btn" href="https://beetjuicer.itch.io/YOUR_BOIDS_PAGE" target="_blank">
+                <img src="https://static.itch.io/images/badge-color.svg" alt="itch.io" height="16" />
+                Play on itch.io
+              </a>
+            </div> -->
+            <div class="scripts-toggle">
+              <button class="toggle-btn" onclick="toggleScripts(this)">
+                <span class="scripts-icon">{&nbsp;}</span> View Scripts
+              </button>
+            </div>
+
+            <div class="scripts-panel" data-project="bullet">
+              <div class="file-tabs"></div>
+            </div>
+            
             </div>
           </div>
         </div>
