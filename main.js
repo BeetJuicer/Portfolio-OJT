@@ -11,6 +11,18 @@ function toggleCard(header) {
   } else {
     body.style.overflow = 'hidden';
   }
+
+  // After opening, load any unloaded videos inside
+  const video = header.nextElementSibling.querySelector('video');
+  if (video) {
+    const source = video.querySelector('source[data-src]');
+    if (source) {
+      source.src = source.dataset.src;     // set the real src
+      source.removeAttribute('data-src');  // mark as loaded
+      video.load();                        // trigger load
+      video.play();
+    }
+  }
 }
 
 // ─── SCRIPTS PANEL TOGGLE ───
