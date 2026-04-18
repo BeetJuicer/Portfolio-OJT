@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="timeline-styles.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@13/font/simple-icons.min.css">
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-light.min.css">
@@ -22,6 +23,7 @@
   <div class="nav-inner">
     <a href="#published">Published</a>
     <a href="#showcase">Showcase</a>
+    <a href="#experience">Experience</a>
     <a href="#requirements">OJT Requirements</a>
     <a href="#contact">Contact</a>
   </div>
@@ -29,6 +31,7 @@
 
 <div id="slot-published"></div>
 <div id="slot-showcase"></div>
+<div id="slot-experience"></div>
 <div id="slot-requirements"></div>
 <div id="slot-contact"></div>
 
@@ -55,13 +58,14 @@
     loadSection('slot-header',       'sections/header.html'),
     loadSection('slot-published',    'sections/published.html'),
     loadSection('slot-showcase',     'sections/showcase.html'),
+    loadSection('slot-experience',   'sections/experience.html'),
     loadSection('slot-requirements', 'sections/requirements.html'),
     loadSection('slot-contact',      'sections/contact.html'),
   ]).then(() => {
     lucide.createIcons();
     hljs.highlightAll();
     initShowcase();
-    initReveal();    // call any main.js functions that query the DOM here
+    initReveal();
   });
 </script>
 
