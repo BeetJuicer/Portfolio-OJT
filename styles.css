@@ -22,6 +22,11 @@ body {
   line-height: 1.6;
 }
 
+.embed-area iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
 .wrap {
   max-width: 860px;
   margin: 0 auto;
