@@ -679,3 +679,35 @@ nav {
 nav::-webkit-scrollbar {
   display: none; /* Chrome/Safari */
 }
+
+.doc-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 36px;
+  background: var(--surface);
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.15s;
+}
+
+.doc-card:hover {
+  background: var(--surface2);
+}
+
+.doc-card svg.lucide {
+  width: 14px;
+  height: 14px;
+  color: var(--faint);
+  flex-shrink: 0;
+  transition: color 0.15s;
+  margin: 0;
+}
+
+.doc-card:hover svg.lucide {
+  color: var(--text);
+}
+
+@media (max-width: 680px) {
+  .doc-card { padding: 16px 24px; }
+}
